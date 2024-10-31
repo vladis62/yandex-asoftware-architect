@@ -1,0 +1,6 @@
+sh.addShard("rs-shard1/mongodb-shard1-node-a:27017")
+sh.addShard("rs-shard1/mongodb-shard1-node-b:27017")
+sh.addShard("rs-shard1/mongodb-shard1-node-c:27017")
+sh.addShard("rs-shard2/mongodb-shard2-node-a:27017")
+sh.addShard("rs-shard2/mongodb-shard2-node-b:27017")
+sh.addShard("rs-shard2/mongodb-shard2-node-c:27017")
