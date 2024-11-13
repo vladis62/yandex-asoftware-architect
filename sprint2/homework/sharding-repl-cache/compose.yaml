@@ -1,0 +1,162 @@
+version: '3.8'
+
+services:
+  mongodb-router1:
+    image: mongo:latest
+    container_name: mongodb-router1
+    command: mongos --port 27017 --configdb rs-config-server/configsvr:27017 --bind_ip_all
+    ports:
+      - "27117:27017"
+    restart: always
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_router1_db:/data/db
+      - mongodb_cluster_router1_config:/data/configdb
+
+  mongodb-router2:
+    image: mongo:latest
+    container_name: mongodb-router2
+    command: mongos --port 27017 --configdb rs-config-server/configsvr:27017 --bind_ip_all
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_router2_db:/data/db
+      - mongodb_cluster_router2_config:/data/configdb
+    ports:
+      - "27118:27017"
+    restart: always
+    links:
+      - mongodb-router1
+
+  mongodb-configsvr:
+    image: mongo:latest
+    container_name: configsvr
+    command: mongod --port 27017 --configsvr --replSet rs-config-server
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_configsvr_db:/data/db
+      - mongodb_cluster_configsvr_config:/data/configdb
+    restart: always
+    links:
+      - mongodb-shard1-node-a
+      - mongodb-shard2-node-a
+
+  mongodb-shard1-node-a:
+    image: mongo:latest
+    container_name: mongodb-shard1-node-a
+    command: mongod --port 27017 --shardsvr --replSet rs-shard1
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_shard1_a_db:/data/db
+      - mongodb_cluster_shard1_a_config:/data/configdb
+    restart: always
+    links:
+      - mongodb-shard1-node-b
+      - mongodb-shard1-node-c
+
+  mongodb-shard1-node-b:
+    image: mongo:latest
+    container_name: mongodb-shard1-node-b
+    command: mongod --port 27017 --shardsvr --replSet rs-shard1
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_shard1_b_db:/data/db
+      - mongodb_cluster_shard1_b_config:/data/configdb
+    restart: always
+
+  mongodb-shard1-node-c:
+    image: mongo:latest
+    container_name: mongodb-shard1-node-c
+    command: mongod --port 27017 --shardsvr --replSet rs-shard1
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_shard1_c_db:/data/db
+      - mongodb_cluster_shard1_c_config:/data/configdb
+    restart: always
+
+  mongodb-shard2-node-a:
+    image: mongo:latest
+    container_name: mongodb-shard2-node-a
+    command: mongod --port 27017 --shardsvr --replSet rs-shard2
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_shard2_a_db:/data/db
+      - mongodb_cluster_shard2_a_config:/data/configdb
+    restart: always
+    links:
+      - mongodb-shard2-node-b
+      - mongodb-shard2-node-c
+
+  mongodb-shard2-node-b:
+    image: mongo:latest
+    container_name: mongodb-shard2-node-b
+    command: mongod --port 27017 --shardsvr --replSet rs-shard2
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_shard2_b_db:/data/db
+      - mongodb_cluster_shard2_b_config:/data/configdb
+    restart: always
+
+  mongodb-shard2-node-c:
+    image: mongo:latest
+    container_name: mongodb-shard2-node-c
+    command: mongod --port 27017 --shardsvr --replSet rs-shard2
+    volumes:
+      - ./scripts:/scripts
+      - mongodb_cluster_shard2_c_db:/data/db
+      - mongodb_cluster_shard2_c_config:/data/configdb
+    restart: always
+
+  redis:
+    image: "redis:latest"
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  pymongo_api:
+    container_name: pymongo_api
+    build:
+      context: api_app
+      dockerfile: Dockerfile
+    image: kazhem/pymongo_api:1.0.0
+    depends_on:
+      - mongodb-router1
+      - mongodb-router2
+      - redis
+    ports:
+      - 8080:8080
+    environment:
+      MONGODB_URL: "mongodb://mongodb-router1:27017"
+      MONGODB_DATABASE_NAME: "somedb"
+      REDIS_URL: "redis://redis:6379"
+
+volumes:
+  mongodb_cluster_router1_db:
+  mongodb_cluster_router1_config:
+
+  mongodb_cluster_router2_db:
+  mongodb_cluster_router2_config:
+
+  mongodb_cluster_configsvr_db:
+  mongodb_cluster_configsvr_config:
+
+  mongodb_cluster_shard1_a_db:
+  mongodb_cluster_shard1_a_config:
+
+  mongodb_cluster_shard1_b_db:
+  mongodb_cluster_shard1_b_config:
+
+  mongodb_cluster_shard1_c_db:
+  mongodb_cluster_shard1_c_config:
+
+  mongodb_cluster_shard2_a_db:
+  mongodb_cluster_shard2_a_config:
+
+  mongodb_cluster_shard2_b_db:
+  mongodb_cluster_shard2_b_config:
+
+  mongodb_cluster_shard2_c_db:
+  mongodb_cluster_shard2_c_config:
+
+  redis_data: { }
