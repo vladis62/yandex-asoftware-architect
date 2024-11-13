@@ -1,0 +1,142 @@
+@startuml
+title Self Service админка для ДКЗ
+
+top to bottom direction
+
+'!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+class Main {
+    +Calls calls
+    +WorkTimeParameters workTimeParameters
+    +CallPrioritizationStrategy prioritizationStrategy
+    +List<BaseNotificationRule> notificationRules
+    +List<FinishRule> finishRules
+}
+
+abstract class FinishRule {
+    +String type
+}
+
+class FailedCallsOverall {
+    +Int limit
+    +String type
+}
+
+class FailedCallsInARow {
+    +Int limit
+    +String type
+}
+
+class PostponeCallsOverall {
+    +Int limit
+    +String type
+}
+
+class PostponeCallsInARow {
+    +Int limit
+    +String type
+}
+
+class TimeoutRule {
+    +Int minutesBeforeFinish
+    +String type
+}
+
+class FailedCallsOverall {
+    +Int limit
+    +String type
+}
+
+abstract class BaseNotificationRule {
+    +String id
+    +String type
+    +String eventName
+}
+
+class TaskCreationNotificationRule {
+    +Int delayAfterTaskCreationInMinutes
+    +String type
+}
+
+class NotificationSentNotificationRule {
+    +Int delayAfterPreviousNotificationInMinutes
+    +String parentNotificationId
+    +String type
+}
+
+class CallNotificationRule {
+    +Int delayAfterCallResultInMinutes
+    +CallResult callResultStatus
+    +Boolean isRepeatable
+    +String type
+}
+
+
+class CallPrioritizationStrategy {
+    +Int firstCallPriority
+    +Int failedCallPriority
+    +Int recallCallPriority
+}
+
+class WorkTimeParameters {
+    +LocalTime workDayStartTime
+    +LocalTime workDayFinishTime
+    +LocalTime nonWorkingDayStartTime
+    +LocalTime nonWorkingDayFinishTime
+}
+
+class Calls {
+  +String queueCode
+  +String description
+  +String productType
+  +String channel
+  +String subChannel
+  +String offer
+  +String mobileVerified
+  +String utmSource
+  +String utmMedium
+  +DcoToggleValue dcoToggleValue
+  +Int waitTimeInMinutes
+  +CallingRules callingRules
+}
+
+class CallingRules {
+    +Int timeToLiveInPersonalQueueInMinutes
+    +Int firstCallDelayInMinutes
+    +List<Call> calls
+}
+
+abstract class Call {
+    +String type
+}
+
+class FailedCall {
+    +Int failedDialsCount
+    +Int delayBeforeNextCallInMinutes
+    +String type
+}
+
+
+Main --> Calls
+Main --> WorkTimeParameters
+Main --> CallPrioritizationStrategy
+Main --> BaseNotificationRule
+Main --> FinishRule
+
+BaseNotificationRule <|-- TaskCreationNotificationRule
+BaseNotificationRule <|-- NotificationSentNotificationRule
+BaseNotificationRule <|-- CallNotificationRule
+
+Calls --> CallingRules
+
+CallingRules --> Call
+Call <|-- FailedCall
+
+FinishRule <|-- FailedCallsOverall
+FinishRule <|-- FailedCallsInARow
+FinishRule <|-- PostponeCallsOverall
+FinishRule <|-- PostponeCallsInARow
+FinishRule <|-- TimeoutRule
+
+
+@enduml

@@ -1,0 +1,197 @@
+@startuml
+
+class StrategyDto {
+    +id: UUID
+    +targetId: String
+    +process: String
+    +businessLine: String
+    +strategyDto: SelfServiceStrategyModel
+    +version: Int
+    +createdDate: LocalDateTime
+    +createdBy: String
+    +updatedDate: LocalDateTime
+    +updatedBy: String
+}
+
+class SelfServiceStrategyModel {
+    +queueName: String
+    +procedureId: String
+    +scriptProcedureId: String
+    +rejectProcedureId: String
+    +finishRules: List<FinishRule>
+    +callingRules: CallingRules
+    +notificationRules: List<BaseNotificationRule>
+    +prioritizationStrategy: CallPrioritizationStrategy
+    +workTimeParameters: WorkTimeParameters
+    +descriptionQueue: String
+}
+
+class FinishRule {
+    +type: String
+}
+
+class TimeoutRule {
+    +minutesBeforeFinish: Int
+    +type: String
+}
+
+class FailedCallsInARow {
+    +limit: Int
+    +type: String
+}
+
+class PostponeCallsInARow {
+    +limit: Int
+    +type: String
+}
+
+class FailedCallsOverall {
+    +limit: Int
+    +type: String
+}
+
+class PostponeCallsOverall {
+    +limit: Int
+    +type: String
+}
+
+class StatusCombinationForFinish {
+    +combinationForFinish: List<CallResult>
+    +type: String
+}
+
+class RejectCall {
+    +type: String
+}
+
+class SuccessCall {
+    +type: String
+}
+
+class Deduplication {
+    +type: String
+}
+
+class InvalidPhoneNumber {
+    +type: String
+}
+
+class CancelTask {
+    +type: String
+}
+
+class InvalidPersonalTime {
+    +type: String
+}
+
+class EternalControlDisabledRule {
+    +eternalControlDisabled: Boolean
+    +type: String
+}
+
+class CallingRules {
+    +timeToLiveInPersonalQueueInMinutes: Int
+    +firstCallDelayInMinutes: Int
+    +calls: List<Call>
+}
+
+abstract class Call {
+    +type: String
+}
+
+class FailedCall {
+    +failedDialsCount: Int
+    +delayBeforeNextCallInMinutes: Int
+    +type: String
+}
+
+class BaseNotificationRule {
+    +id: String
+    +type: String
+    +eventName: String
+}
+
+class TaskCreationNotificationRule {
+    +delayAfterTaskCreationInMinutes: Int
+    +type: String
+}
+
+class NotificationSentNotificationRule {
+    +delayAfterPreviousNotificationInMinutes: Int
+    +parentNotificationId: String
+    +type: String
+}
+
+class CallNotificationRule {
+    +delayAfterCallResultInMinutes: Int
+    +callResultStatus: CallResult
+    +isRepeatable: Boolean
+    +type: String
+}
+
+class FinishNotificationRule {
+    +delayAfterFinishInMinutes: Int
+    +type: String
+}
+
+class CallPrioritizationStrategy {
+    +type: String
+}
+
+class FirstInFirstOut {
+    +firstCallPriority: Int
+    +failedCallPriority: Int
+    +recallCallPriority: Int
+    +type: String
+}
+
+class LastInFirstOut {
+    +firstCallPriority: Int
+    +failedCallPriority: Int
+    +recallCallPriority: Int
+    +delayBeforeDecreasingPriorityInMinutes: Int
+    +decreasingPriorityStep: Int
+    +type: String
+}
+
+class WorkTimeParameters {
+    +onlyWorkingDays: Boolean
+    +workDayStartTime: LocalTime
+    +workDayFinishTime: LocalTime
+    +nonWorkingDayStartTime: LocalTime
+    +nonWorkingDayFinishTime: LocalTime
+}
+
+StrategyDto --> SelfServiceStrategyModel
+SelfServiceStrategyModel --> FinishRule
+SelfServiceStrategyModel --> CallingRules
+SelfServiceStrategyModel --> BaseNotificationRule
+SelfServiceStrategyModel --> CallPrioritizationStrategy
+SelfServiceStrategyModel --> WorkTimeParameters
+
+FinishRule <|-- TimeoutRule
+FinishRule <|-- FailedCallsInARow
+FinishRule <|-- PostponeCallsInARow
+FinishRule <|-- FailedCallsOverall
+FinishRule <|-- PostponeCallsOverall
+FinishRule <|-- StatusCombinationForFinish
+FinishRule <|-- RejectCall
+FinishRule <|-- SuccessCall
+FinishRule <|-- Deduplication
+FinishRule <|-- InvalidPhoneNumber
+FinishRule <|-- CancelTask
+FinishRule <|-- InvalidPersonalTime
+FinishRule <|-- EternalControlDisabledRule
+
+CallingRules --> Call
+Call <|-- FailedCall
+
+BaseNotificationRule <|-- TaskCreationNotificationRule
+BaseNotificationRule <|-- NotificationSentNotificationRule
+BaseNotificationRule <|-- CallNotificationRule
+BaseNotificationRule <|-- FinishNotificationRule
+
+CallPrioritizationStrategy <|-- FirstInFirstOut
+CallPrioritizationStrategy <|-- LastInFirstOut
+
+@enduml
