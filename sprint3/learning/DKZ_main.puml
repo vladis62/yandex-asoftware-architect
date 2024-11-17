@@ -5,7 +5,42 @@ top to bottom direction
 
 '!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
 
-class Main {
+class StrategyRequest {
+    +UUID id,
+    +String process
+    +String businessLine
+    +ShortApplicationStrategyModel strategyDto
+    +StrategyRules strategyRules
+}
+
+class StrategyRules {
+  +UUID id,
+  +String process
+  +String queueCode
+  +Rules rules
+}
+
+class Rules {
+  +String description
+  +String productType
+  +String channel
+  +String subChannel
+  +String offer
+  +String mobileVerified
+  +String utmSource
+  +String utmMedium
+  +String dcoToggleValue
+}
+
+abstract class StrategyModel {
+    +Calls calls
+    +WorkTimeParameters workTimeParameters
+    +CallPrioritizationStrategy prioritizationStrategy
+    +List<BaseNotificationRule> notificationRules
+    +List<FinishRule> finishRules
+}
+
+class ShortApplicationStrategyModel {
     +Calls calls
     +WorkTimeParameters workTimeParameters
     +CallPrioritizationStrategy prioritizationStrategy
@@ -86,16 +121,6 @@ class WorkTimeParameters {
 }
 
 class Calls {
-  +String queueCode
-  +String description
-  +String productType
-  +String channel
-  +String subChannel
-  +String offer
-  +String mobileVerified
-  +String utmSource
-  +String utmMedium
-  +DcoToggleValue dcoToggleValue
   +Int waitTimeInMinutes
   +CallingRules callingRules
 }
@@ -116,12 +141,18 @@ class FailedCall {
     +String type
 }
 
+StrategyRequest --> StrategyModel
+StrategyRequest --> StrategyRules
 
-Main --> Calls
-Main --> WorkTimeParameters
-Main --> CallPrioritizationStrategy
-Main --> BaseNotificationRule
-Main --> FinishRule
+StrategyRules --> Rules
+
+StrategyModel <|-- ShortApplicationStrategyModel
+
+StrategyModel --> Calls
+StrategyModel --> WorkTimeParameters
+StrategyModel --> CallPrioritizationStrategy
+StrategyModel --> BaseNotificationRule
+StrategyModel --> FinishRule
 
 BaseNotificationRule <|-- TaskCreationNotificationRule
 BaseNotificationRule <|-- NotificationSentNotificationRule
