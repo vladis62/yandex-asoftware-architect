@@ -1,0 +1,22 @@
+@startuml
+title Device State Manager - Class Diagram
+
+class DeviceStateManager {
+  +getDeviceState(deviceId: String): DeviceState
+  +updateDeviceState(deviceId: String, state: DeviceState): void
+}
+
+class DeviceState {
+  +status: DeviceStatus
+  +temperature: Double
+  +lastUpdated: Date
+}
+
+class DeviceStatus {
+  +ON
+  +OFF
+}
+
+DeviceStateManager --> DeviceState : Manages
+DeviceStateManager --> Database : Reads/Writes device state
+@enduml

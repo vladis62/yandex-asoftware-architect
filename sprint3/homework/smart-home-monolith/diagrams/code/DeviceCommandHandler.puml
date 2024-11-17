@@ -1,0 +1,27 @@
+@startuml
+title Device Command Handler - Class Diagram
+
+class DeviceCommandHandler {
+  +handleCommand(command: Command): void
+  +turnOnDevice(deviceId: String): void
+  +turnOffDevice(deviceId: String): void
+  +setTemperature(deviceId: String, temperature: Double): void
+}
+
+class Command {
+  +type: CommandType
+  +deviceId: String
+  +payload: Any
+}
+
+class CommandType {
+  +TURN_ON
+  +TURN_OFF
+  +SET_TEMPERATURE
+}
+
+DeviceCommandHandler -> Command : Uses
+DeviceCommandHandler -> DeviceStateManager : Updates device state
+DeviceCommandHandler -> DeviceConfigurationManager : Retrieves configuration
+DeviceCommandHandler -> DeviceIntegrationManager : Sends command to third-party devices
+@enduml

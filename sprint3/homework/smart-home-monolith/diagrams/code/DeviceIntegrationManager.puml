@@ -1,0 +1,22 @@
+@startuml
+title Device Configuration Manager - Class Diagram
+
+class DeviceConfigurationManager {
+  +getDeviceConfig(deviceId: String): DeviceConfig
+  +updateDeviceConfig(deviceId: String, config: DeviceConfig): void
+}
+
+class DeviceConfig {
+  +temperature: Double
+  +schedule: Schedule
+}
+
+class Schedule {
+  +startTime: Date
+  +endTime: Date
+  +action: String
+}
+
+DeviceConfigurationManager --> DeviceConfig : Manages
+DeviceConfigurationManager --> Database : Reads/Writes device configuration
+@enduml

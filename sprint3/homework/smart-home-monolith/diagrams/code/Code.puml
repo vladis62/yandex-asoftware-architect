@@ -1,0 +1,20 @@
+@startuml
+title Device Command Handling Sequence Diagram
+
+actor User
+participant API
+participant DeviceCommandHandler
+participant DeviceStateManager
+participant DeviceConfigurationManager
+participant DeviceIntegrationManager
+
+User -> API : Sends command (turn on device)
+API -> DeviceCommandHandler : handleCommand(command)
+DeviceCommandHandler -> DeviceStateManager : getDeviceState(deviceId)
+DeviceStateManager -> DeviceStateManager : return device state
+DeviceCommandHandler -> DeviceStateManager : updateDeviceState(deviceId, ON)
+DeviceCommandHandler -> DeviceIntegrationManager : sendCommandToDevice(deviceId, ON)
+DeviceIntegrationManager -> DeviceIntegrationManager : control third-party device
+DeviceCommandHandler -> API : return success
+
+@enduml
