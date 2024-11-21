@@ -6,11 +6,17 @@ top to bottom direction
 !includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
 
 Person(user, "User", "Владелец системы умного дома")
-System(SmartHomeSystem, "SmartHome System", "Система управления умным домом")
+System(SmartHomeSystem, "SmartHome System", "Система управления умным домом", "Monolith (Spring Boot, PostgreSQL)")
 
-System_Ext(system, "Heating System", "External system for handling home")
+Container(webApp, "Web Application", "Web App", "React.js")
+Container(mobileApp, "Mobile App", "Mobile App", "Flutter")
 
-Rel(user, SmartHomeSystem, "Uses the system")
-Rel(SmartHomeSystem, system, "Handling home")
+System_Ext(heatingSystem, "Heating System", "External system for handling home", "Производитель оборудования")
+
+Rel(user, webApp, "Использует", "HTTPS")
+Rel(user, mobileApp, "Использует", "HTTPS")
+Rel(webApp, SmartHomeSystem, "Отправляет запросы", "REST API (HTTPS)")
+Rel(mobileApp, SmartHomeSystem, "Отправляет запросы", "REST API (HTTPS)")
+Rel(SmartHomeSystem, heatingSystem, "Обрабатывает управление отоплением", "Протокол производителя (например, MQTT или проприетарный драйвер)")
 
 @enduml

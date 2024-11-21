@@ -9,7 +9,7 @@ Person(user, "User", "Homeowner accessing and controlling the smart home system"
 
 System_Boundary(SmartHomeSystem, "Smart Home System") {
   Container(UserManagement, "User Management Service", "Kotlin, Spring Boot", "Handles user authentication and roles")
-  Container(DeviceManagement, "Device Management Service", "Kotlin, Spring Boot", "Manages device registration and configurations")
+  Container(DeviceManagement, "Device Management Service", "Kotlin, Spring Boot", "Manages device registration, configurations, and state data from sensors")
   Container(ScenarioManagement, "Scenario Management Service", "Kotlin, Spring Boot", "Manages user-defined automation scenarios")
   Container(TelemetryService, "Telemetry Service", "Kotlin, Spring Boot", "Collects and provides telemetry data from devices")
   Container(ControlService, "Control Service", "Kotlin, Spring Boot", "Manages real-time device control")
@@ -21,6 +21,7 @@ System_Boundary(SmartHomeSystem, "Smart Home System") {
   Container(Database, "Central Database", "PostgreSQL", "Stores user data, device info, and telemetry")
 }
 
+System_Ext(Sensor, "Sensor", "External Sensors", "Publishes telemetry data and state updates to the system")
 System_Ext(Thermostats, "Thermostats", "Smart thermostats")
 System_Ext(Radiators, "Radiators", "Smart radiators")
 System_Ext(HeatPumps, "Heat Pumps", "Smart heat pumps")
@@ -47,5 +48,9 @@ Rel(ControlService, Thermostats, "Controls thermostat devices")
 Rel(ControlService, Radiators, "Controls radiator devices")
 Rel(ControlService, HeatPumps, "Controls heat pump devices")
 Rel(API_Gateway, Database, "Logs user activity and requests")
+
+Rel(Sensor, Kafka, "Publishes telemetry and state updates", "MQTT")
+Rel(Kafka, DeviceManagement, "Delivers state updates from sensors")
+Rel(Kafka, TelemetryService, "Delivers telemetry messages from sensors")
 
 @enduml
