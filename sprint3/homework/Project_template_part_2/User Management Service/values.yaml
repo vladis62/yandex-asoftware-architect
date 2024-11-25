@@ -1,0 +1,16 @@
+replicaCount: 2
+
+image:
+  repository: my-docker-repo/user-management-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8081
+
+env:
+  SPRING_PROFILES_ACTIVE: prod
+  DATABASE_URL: postgresql://user:password@postgres:5432/user_db
+
+resources: {}

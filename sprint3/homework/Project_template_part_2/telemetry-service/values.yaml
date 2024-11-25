@@ -1,0 +1,17 @@
+replicaCount: 2
+
+image:
+  repository: my-docker-repo/telemetry-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8084
+
+env:
+  SPRING_PROFILES_ACTIVE: prod
+  KAFKA_BROKER_URL: kafka:9092
+  DATABASE_URL: postgresql://user:password@postgres:5432/telemetry_db
+
+resources: {}

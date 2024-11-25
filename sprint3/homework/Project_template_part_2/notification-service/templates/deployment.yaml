@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-notification-service-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-notification-service
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-notification-service
+    spec:
+      containers:
+          - name: notification-service
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            ports:
+              - containerPort: 8085
+            env:
+              - name: SPRING_PROFILES_ACTIVE
+                value: "{{ .Values.env.SPRING_PROFILES_ACTIVE }}"
+              - name: KAFKA_BROKER_URL
+                value: "{{ .Values.env.KAFKA_BROKER_URL }}"
