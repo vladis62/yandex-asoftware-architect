@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:13-alpine
+    container_name: postgres-db
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: smart_home
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+

@@ -1,0 +1,50 @@
+@startuml
+title Smart Home System Container Diagram
+
+top to bottom direction
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+Person(user, "User", "Homeowner accessing and controlling the smart home system")
+
+System_Boundary(SmartHomeSystem, "Smart Home System") {
+  Container(UserManagement, "User Management Service", "Kotlin, Spring Boot", "Handles user authentication and roles")
+  Container(DeviceManagement, "Device Management Service", "Kotlin, Spring Boot", "Manages device registration, configurations, and state data from sensors")
+  Container(ScenarioManagement, "Scenario Management Service", "Kotlin, Spring Boot", "Manages user-defined automation scenarios")
+  Container(TelemetryService, "Telemetry Service", "Kotlin, Spring Boot", "Collects and provides telemetry data from devices")
+  Container(ControlService, "Control Service", "Kotlin, Spring Boot", "Manages real-time device control")
+  Container(NotificationService, "Notification Service", "Kotlin, Spring Boot", "Sends notifications and alerts")
+  Container(IntegrationService, "Integration Service", "Kotlin, Spring Boot", "Integrates third-party devices via standard protocols")
+  Container(AnalyticsService, "Analytics Service", "Kotlin, Spring Boot", "Analyzes data and provides insights")
+  Container(API_Gateway, "API Gateway", "Kotlin, Spring Boot", "Routes user requests to appropriate microservices and handles monitoring and logging")
+  Container(Kafka, "Apache Kafka", "Apache Kafka", "Facilitates asynchronous communication between services")
+  Container(Database, "Central Database", "PostgreSQL", "Stores user data, device info, and telemetry")
+}
+
+System_Ext(Sensor, "Sensor", "External Sensors", "Publishes telemetry data and state updates to the system")
+System_Ext(Thermostats, "Thermostats", "Smart thermostats")
+System_Ext(Radiators, "Radiators", "Smart radiators")
+System_Ext(HeatPumps, "Heat Pumps", "Smart heat pumps")
+
+Rel(user, MobileApp, "Uses for control and monitoring")
+Rel(MobileApp, API_Gateway, "Sends API requests")
+Rel(API_Gateway, UserManagement, "Routes user-related requests")
+Rel(API_Gateway, DeviceManagement, "Routes device-related requests")
+Rel(API_Gateway, ScenarioManagement, "Routes scenario-related requests")
+Rel(API_Gateway, TelemetryService, "Routes telemetry-related requests")
+Rel(API_Gateway, ControlService, "Routes control commands")
+Rel(API_Gateway, NotificationService, "Routes notification requests")
+Rel(API_Gateway, AnalyticsService, "Routes analytics requests")
+Rel(DeviceManagement, IntegrationService, "Connects to third-party devices")
+Rel(ControlService, DeviceManagement, "Issues control commands")
+Rel(DeviceManagement, Thermostats, "Sends and receives data")
+Rel(DeviceManagement, Radiators, "Sends and receives data")
+Rel(DeviceManagement, HeatPumps, "Sends and receives data")
+Rel(TelemetryService, Database, "Stores telemetry data")
+Rel(ScenarioManagement, Database, "Stores automation scenarios")
+Rel(NotificationService, Kafka, "Publishes notifications")
+Rel(Kafka, TelemetryService, "Delivers telemetry messages from sensors")
+Rel(Kafka, DeviceManagement, "Delivers state updates from sensors")
+Rel(Sensor, Kafka, "Publishes telemetry and state updates", "MQTT")
+
+@enduml

@@ -1,0 +1,36 @@
+@startuml
+title Device Management Service Component Diagram
+
+top to bottom direction
+
+!includeurl https://raw.githubusercontent.com/RicardoNiepel/C4-PlantUML/master/C4_Component.puml
+
+Container_Boundary(DeviceManagementSystem, "Device Management System") {
+  Container(DeviceManagementService, "Device Management Service", "Kotlin, Spring Boot", "Manages devices, their states, and configurations") {
+    Component(API, "API", "Handles incoming requests", "Routes requests for device management, registration, and configuration")
+    Component(DeviceCommandHandler, "Device Command Handler", "Handles device control commands", "Processes commands like turning devices on/off, setting temperature")
+    Component(DeviceStateManager, "Device State Manager", "Manages device state", "Maintains current state and updates it based on actions")
+    Component(DeviceRegistrationManager, "Device Registration Manager", "Handles device registration", "Manages adding and validating new devices in the system")
+    Component(DeviceConfigurationManager, "Device Configuration Manager", "Manages device configurations", "Handles device settings like temperature, schedules")
+    Component(DeviceIntegrationManager, "Device Integration Manager", "Handles integration of third-party devices", "Manages connections to external devices using protocols like HTTP, Web Sockets")
+    Component(DeviceCommunicationLayer, "Device Communication Layer", "Handles communication with devices", "Establishes real-time communication with devices for control and monitoring")
+  }
+
+  Container(Database, "Database", "PostgreSQL", "Stores device information, configurations, and states")
+}
+
+Rel(API, DeviceCommandHandler, "Routes device control requests")
+Rel(API, DeviceRegistrationManager, "Routes device registration requests")
+Rel(API, DeviceConfigurationManager, "Routes device configuration requests")
+Rel(DeviceCommandHandler, DeviceStateManager, "Updates state after command execution")
+Rel(DeviceCommandHandler, DeviceIntegrationManager, "Sends control commands to third-party devices")
+Rel(DeviceStateManager, DeviceConfigurationManager, "Retrieves configuration for state management")
+Rel(DeviceRegistrationManager, Database, "Stores and retrieves device registration details")
+Rel(DeviceConfigurationManager, Database, "Stores and retrieves device configurations")
+Rel(DeviceStateManager, Database, "Stores and retrieves device states")
+Rel(DeviceIntegrationManager, Database, "Stores integration data for third-party devices")
+Rel(DeviceCommunicationLayer, DeviceStateManager, "Retrieves/updates device state in real-time")
+Rel(DeviceCommunicationLayer, DeviceIntegrationManager, "Sends/receives data to/from third-party devices")
+Rel(DeviceCommunicationLayer, DeviceCommandHandler, "Receives command requests for devices")
+
+@enduml

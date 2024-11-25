@@ -1,0 +1,64 @@
+@startuml
+title ER Diagram for "Smart Home System"
+
+entity "User" {
+  +id: INT
+  +name: VARCHAR
+  +email: VARCHAR
+  +password_hash: VARCHAR
+  +created_at: DATETIME
+}
+
+entity "House" {
+  +id: INT
+  +address: VARCHAR
+  +created_at: DATETIME
+}
+
+entity "UserHouse" {
+  +id: INT
+  +user_id: INT
+  +house_id: INT
+  +role: ENUM('Owner', 'Guest') // Опционально
+  +created_at: DATETIME
+}
+
+entity "Device" {
+  +id: INT
+  +device_type_id: INT
+  +house_id: INT
+  +serial_number: VARCHAR
+  +status: VARCHAR
+  +created_at: DATETIME
+}
+
+entity "DeviceType" {
+  +id: INT
+  +name: VARCHAR
+  +description: TEXT
+}
+
+entity "Module" {
+  +id: INT
+  +device_id: INT
+  +name: VARCHAR
+  +description: TEXT
+  +type: VARCHAR // Тип модуля (напр., "temperature", "humidity", "power")
+  +created_at: DATETIME
+}
+
+entity "TelemetryData" {
+  +id: INT
+  +module_id: INT
+  +value: DECIMAL
+  +timestamp: DATETIME
+}
+
+User ||--o{ UserHouse : "Accesses"
+House ||--o{ UserHouse : "Is accessible to"
+House ||--o| Device : "Contains"
+Device ||--o| DeviceType : "Belongs to"
+Device ||--o| Module : "Uses"
+Module ||--o| TelemetryData : "Generates"
+
+@enduml
