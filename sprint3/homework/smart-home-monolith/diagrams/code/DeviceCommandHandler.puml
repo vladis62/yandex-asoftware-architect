@@ -20,8 +20,8 @@ class CommandType {
   +SET_TEMPERATURE
 }
 
-DeviceCommandHandler -> Command : Uses
-DeviceCommandHandler -> DeviceStateManager : Updates device state
-DeviceCommandHandler -> DeviceConfigurationManager : Retrieves configuration
-DeviceCommandHandler -> DeviceIntegrationManager : Sends command to third-party devices
+DeviceCommandHandler --> Command : Uses
+DeviceCommandHandler --> DeviceStateManager : Updates device state
+DeviceCommandHandler --> DeviceConfigurationManager : Retrieves configuration
+DeviceCommandHandler --> DeviceIntegrationManager : Sends command to third-party devices
 @enduml
