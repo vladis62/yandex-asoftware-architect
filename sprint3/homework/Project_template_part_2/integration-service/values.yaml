@@ -1,0 +1,16 @@
+replicaCount: 2
+
+image:
+  repository: my-docker-repo/integration-service
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 8086
+
+env:
+  SPRING_PROFILES_ACTIVE: prod
+  KAFKA_BROKER_URL: kafka:9092
+
+resources: {}

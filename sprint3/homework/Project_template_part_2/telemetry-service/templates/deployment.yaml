@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-telemetry-service-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-telemetry-service
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-telemetry-service
+    spec:
+      containers:
+          - name: telemetry-service
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            ports:
+              - containerPort: 8084
+            env:
+              - name: SPRING_PROFILES_ACTIVE
+                value: "{{ .Values.env.SPRING_PROFILES_ACTIVE }}"
+              - name: KAFKA_BROKER_URL
+                value: "{{ .Values.env.KAFKA_BROKER_URL }}"
+              - name: DATABASE_URL
+                value: "{{ .Values.env.DATABASE_URL }}"

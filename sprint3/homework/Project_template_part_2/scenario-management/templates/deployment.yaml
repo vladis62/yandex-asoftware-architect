@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-scenario-management-deployment
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-scenario-management
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-scenario-management
+    spec:
+      containers:
+          - name: scenario-management
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            ports:
+              - containerPort: 8083
+            env:
+              - name: SPRING_PROFILES_ACTIVE
+                value: "{{ .Values.env.SPRING_PROFILES_ACTIVE }}"
+              - name: DATABASE_URL
+                value: "{{ .Values.env.DATABASE_URL }}"
