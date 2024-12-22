@@ -1,0 +1,849 @@
+(myenv) ~/IdeaProjects/yandex/yandex-asoftware-architect/sprint5/homework/back/chat-bot git:[sprint5]
+rasa run --enable-api --debug --cors "*"
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/tracker_store.py:1044: MovedIn20Warning: Deprecated API features detected! These feature(s) are not compatible with SQLAlchemy 2.0. To prevent incompatible upgrades prior to updating applications, ensure requirements files are pinned to "sqlalchemy<2.0". Set environment variable SQLALCHEMY_WARN_20=1 to show all deprecation warnings.  Set environment variable SQLALCHEMY_SILENCE_UBER_WARNING=1 to silence this message. (Background on SQLAlchemy 2.0 at: https://sqlalche.me/e/b8d9)
+  Base: DeclarativeMeta = declarative_base()
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/shared/utils/validation.py:134: DeprecationWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html
+  import pkg_resources
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('mpl_toolkits')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/pkg_resources/__init__.py:3154: DeprecationWarning: Deprecated call to `pkg_resources.declare_namespace('ruamel')`.
+Implementing implicit namespace packages (as specified in PEP 420) is preferred to `pkg_resources.declare_namespace`. See https://setuptools.pypa.io/en/latest/references/keywords.html#keyword-namespace-packages
+  declare_namespace(pkg)
+2024-12-23 17:30:48 DEBUG    rasa.cli.utils  - Parameter 'credentials' not set. Using default location 'credentials.yml' instead.
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/sanic_cors/extension.py:39: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  SANIC_VERSION = LooseVersion(sanic_version)
+2024-12-23 17:30:50 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-12-23 17:30:50 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-12-23 17:30:50 DEBUG    h5py._conv  - Creating converter from 7 to 5
+2024-12-23 17:30:50 DEBUG    h5py._conv  - Creating converter from 5 to 7
+2024-12-23 17:30:50 DEBUG    jax._src.path  - etils.epath was not found. Using pathlib for file I/O.
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/tensorflow/lite/python/util.py:52: DeprecationWarning: jax.xla_computation is deprecated. Please use the AOT APIs.
+  from jax import xla_computation as _xla_computation
+2024-12-23 17:30:52 DEBUG    rasa.core.utils  - Available web server routes:
+/conversations/<conversation_id:path>/messages     POST                           add_message
+/conversations/<conversation_id:path>/tracker/events POST                           append_events
+/webhooks/rasa                                     GET                            custom_webhook_RasaChatInput.health
+/webhooks/rasa/webhook                             POST                           custom_webhook_RasaChatInput.receive
+/webhooks/rest                                     GET                            custom_webhook_RestInput.health
+/webhooks/rest/webhook                             POST                           custom_webhook_RestInput.receive
+/model/test/intents                                POST                           evaluate_intents
+/model/test/stories                                POST                           evaluate_stories
+/conversations/<conversation_id:path>/execute      POST                           execute_action
+/domain                                            GET                            get_domain
+/                                                  GET                            hello
+/model                                             PUT                            load_model
+/model/parse                                       POST                           parse
+/conversations/<conversation_id:path>/predict      POST                           predict
+/conversations/<conversation_id:path>/tracker/events PUT                            replace_events
+/conversations/<conversation_id:path>/story        GET                            retrieve_story
+/conversations/<conversation_id:path>/tracker      GET                            retrieve_tracker
+/status                                            GET                            status
+/model/predict                                     POST                           tracker_predict
+/model/train                                       POST                           train
+/conversations/<conversation_id:path>/trigger_intent POST                           trigger_intent
+/model                                             DELETE                         unload_model
+/version                                           GET                            version
+2024-12-23 17:30:52 INFO     root  - Starting Rasa server on http://0.0.0.0:5005
+2024-12-23 17:30:52 DEBUG    rasa.core.utils  - Using the default number of Sanic workers (1).
+2024-12-23 17:30:53 DEBUG    rasa.telemetry  - Skipping telemetry reporting: no license hash found.
+2024-12-23 17:30:53 DEBUG    rasa.core.tracker_store  - Connected to InMemoryTrackerStore.
+2024-12-23 17:30:53 DEBUG    rasa.core.lock_store  - Connected to lock store 'InMemoryLockStore'.
+2024-12-23 17:30:53 DEBUG    rasa.core.nlg.generator  - Instantiated NLG to 'TemplatedNaturalLanguageGenerator'.
+2024-12-23 17:30:53 INFO     rasa.core.processor  - Loading model models/20241223-172940-relaxed-heron.tar.gz...
+2024-12-23 17:30:53 DEBUG    rasa.engine.storage.local_model_storage  - Extracted model to '/var/folders/91/gpnlmc_d6ln34g15zz23_r7c0000gp/T/tmprexe67sg'.
+2024-12-23 17:30:53 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' loading 'NLUMessageConverter.load' and kwargs: '{}'.
+2024-12-23 17:30:53 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' loading 'WhitespaceTokenizer.load' and kwargs: '{}'.
+2024-12-23 17:30:53 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' loading 'RegexFeaturizer.load' and kwargs: '{}'.
+2024-12-23 17:30:53 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RegexFeaturizer1' was requested for reading.
+2024-12-23 17:30:53 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' loading 'LexicalSyntacticFeaturizer.load' and kwargs: '{}'.
+2024-12-23 17:30:53 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_LexicalSyntacticFeaturizer2' was requested for reading.
+2024-12-23 17:30:53 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' loading 'CountVectorsFeaturizer.load' and kwargs: '{}'.
+2024-12-23 17:30:53 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_CountVectorsFeaturizer3' was requested for reading.
+2024-12-23 17:30:53 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' loading 'LanguageModelFeaturizer.load' and kwargs: '{}'.
+2024-12-23 17:30:53 DEBUG    rasa.nlu.featurizers.dense_featurizer.lm_featurizer  - Loading Tokenizer and Model for gpt2
+2024-12-23 17:30:53 DEBUG    urllib3.connectionpool  - Starting new HTTPS connection (1): huggingface.co:443
+2024-12-23 17:30:54 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /gpt2/resolve/main/tokenizer_config.json HTTP/1.1" 200 0
+2024-12-23 17:30:54 DEBUG    urllib3.connectionpool  - https://huggingface.co:443 "HEAD /gpt2/resolve/main/config.json HTTP/1.1" 200 0
+All PyTorch model weights were used when initializing TFGPT2Model.
+
+All the weights of TFGPT2Model were initialized from the PyTorch model.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use TFGPT2Model for predictions without further training.
+2024-12-23 17:30:55 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' loading 'DIETClassifier.load' and kwargs: '{}'.
+2024-12-23 17:30:55 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_DIETClassifier5' was requested for reading.
+2024-12-23 17:30:55 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/91/gpnlmc_d6ln34g15zz23_r7c0000gp/T/tmpo_c4iuii/train_DIETClassifier5/DIETClassifier.tf_model with finetune_mode=False...
+2024-12-23 17:30:55 DEBUG    rasa.nlu.classifiers.diet_classifier  - You specified 'DIET' to train entities, but no entities are present in the training data. Skipping training of entities.
+2024-12-23 17:30:55 DEBUG    rasa.nlu.classifiers.diet_classifier  - Following metrics will be logged during training:
+2024-12-23 17:30:55 DEBUG    rasa.nlu.classifiers.diet_classifier  -   t_loss (total loss)
+2024-12-23 17:30:55 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_acc (intent acc)
+2024-12-23 17:30:55 DEBUG    rasa.nlu.classifiers.diet_classifier  -   i_loss (intent loss)
+2024-12-23 17:30:55 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-12-23 17:30:55 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-12-23 17:30:59 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' loading 'EntitySynonymMapper.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_EntitySynonymMapper6' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.nlu.extractors.entity_synonyms  - Failed to load ABCMeta from model storage. Resource 'train_EntitySynonymMapper6' doesn't exist.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' loading 'ResponseSelector.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_ResponseSelector7' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.nlu.classifiers.diet_classifier  - Failed to load ABCMeta from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/utils/train_utils.py:530: UserWarning: constrain_similarities is set to `False`. It is recommended to set it to `True` when using cross-entropy loss.
+  rasa.shared.utils.io.raise_warning(
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_ResponseSelector7' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.nlu.selectors.response_selector  - Failed to load ResponseSelector from model storage. Resource 'train_ResponseSelector7' doesn't exist.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' loading 'RegexMessageHandler.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'domain_provider' loading 'DomainProvider.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'domain_provider' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' loading 'RulePolicy.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy0' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' loading 'MemoizationPolicy.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_MemoizationPolicy1' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' loading 'TEDPolicy.load' and kwargs: '{}'.
+2024-12-23 17:30:59 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_TEDPolicy2' was requested for reading.
+2024-12-23 17:30:59 DEBUG    rasa.utils.tensorflow.models  - Loading the model from /var/folders/91/gpnlmc_d6ln34g15zz23_r7c0000gp/T/tmpo_c4iuii/train_TEDPolicy2/ted_policy.tf_model with finetune_mode=False...
+2024-12-23 17:30:59 WARNING  absl  - At this time, the v2.11+ optimizer `tf.keras.optimizers.Adam` runs slowly on M1/M2 Macs, please use the legacy Keras optimizer instead, located at `tf.keras.optimizers.legacy.Adam`.
+2024-12-23 17:30:59 WARNING  absl  - There is a known slowdown when using v2.11+ Keras optimizers on M1/M2 Macs. Falling back to the legacy Keras optimizer, i.e., `tf.keras.optimizers.legacy.Adam`.
+2024-12-23 17:31:03 DEBUG    rasa.utils.tensorflow.models  - Finished loading the model.
+2024-12-23 17:31:03 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' loading 'RuleOnlyDataProvider.load' and kwargs: '{}'.
+2024-12-23 17:31:03 DEBUG    rasa.engine.storage.local_model_storage  - Resource 'train_RulePolicy0' was requested for reading.
+2024-12-23 17:31:03 DEBUG    rasa.engine.graph  - Node 'select_prediction' loading 'DefaultPolicyPredictionEnsemble.load' and kwargs: '{}'.
+2024-12-23 17:31:03 INFO     root  - Rasa server is up and running.
+2024-12-23 17:31:03 INFO     root  - Enabling coroutine debugging. Loop id 13491748816.
+2024-12-23 17:32:24 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'user123'.
+2024-12-23 17:32:24 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'user123'.
+2024-12-23 17:32:24 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'user123'.
+2024-12-23 17:32:24 DEBUG    rasa.core.tracker_store  - Could not find tracker for conversation ID 'user123'.
+2024-12-23 17:32:24 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - Starting a new session for conversation ID 'user123'.
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_session_start rasa_events=[<rasa.shared.core.events.SessionStarted object at 0x380d4b070>, ActionExecuted(action: action_listen, policy: None, confidence: None)]
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-12-23 17:32:24 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x380d3fb20>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8bfdc0>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:32:24 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:32:24 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'микросервисы', 'confidence': 0.991177499294281} parse_data_text=Что такое микросервис
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 4 events.
+2024-12-23 17:32:24 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:32:24 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:32:24 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8bfdc0>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:24 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:32:24 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_microservices'
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:24 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user text: Что такое микросервис | previous action name: action_listen
+2024-12-23 17:32:24 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:32:24 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+2024-12-23 17:32:24 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:32:24 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_microservices' based on user intent.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - Predicted next action 'utter_microservices' with confidence 1.00.
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x37dd43280>]
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_microservices rasa_events=[BotUttered('Микросервисная архитектура — это подход к разработке, когда приложение разделяется на независимые сервисы, взаимодействующие между собой. Больше информации об интеграциях микросервисов вы найдете в статье  https://habr.com/ru/articles/791186/', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_microservices"}, 1734964345.003097)]
+2024-12-23 17:32:25 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8bfdc0>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'utter_microservices'}}]
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_microservice_info'
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_microservice_info' based on user intent.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - Predicted next action 'action_microservice_info' with confidence 1.00.
+2024-12-23 17:32:25 DEBUG    rasa.core.actions.action  - Calling action endpoint to run action 'action_microservice_info'.
+2024-12-23 17:32:25 ERROR    rasa.core.actions.action  - Failed to run custom action 'action_microservice_info'. Couldn't connect to the server at 'http://localhost:5055/webhook'. Is the server running? Error: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+2024-12-23 17:32:25 ERROR    rasa.core.processor  - Encountered an exception while running action 'action_microservice_info'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1025, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 1065, in create_connection
+    raise exceptions[0]
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 1050, in create_connection
+    sock = await self._connect_sock(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 961, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/selector_events.py", line 499, in sock_connect
+    return await fut
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/selector_events.py", line 534, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('127.0.0.1', 5055)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/actions/action.py", line 780, in run
+    response: Any = await self.action_endpoint.request(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/utils/endpoints.py", line 174, in request
+    async with session.request(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/client.py", line 1197, in __aenter__
+    self._resp = await self._coro
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/client.py", line 581, in _request
+    conn = await self._connector.connect(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 944, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1257, in _create_direct_connection
+    raise last_exc
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1226, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1033, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/processor.py", line 982, in _run_action
+    events = await action.run(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/actions/action.py", line 821, in run
+    raise RasaException(
+rasa.shared.exceptions.RasaException: Failed to execute custom action 'action_microservice_info'. Couldn't connect to the server at 'http://localhost:5055/webhook.
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_microservice_info rasa_events=[]
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-12-23 17:32:25 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8bfdc0>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'utter_microservices'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_microservice_info'}}]
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:32:25 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:25 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:32:25 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:32:25 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:32:25 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'user123'.
+2024-12-23 17:32:37 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'user123'.
+2024-12-23 17:32:37 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'user123'.
+2024-12-23 17:32:37 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'user123'.
+2024-12-23 17:32:37 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'user123'
+2024-12-23 17:32:37 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x37cfc0eb0>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37a5dfe20>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:37 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:32:37 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:32:37 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:32:37 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:32:37 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:32:37 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:32:38 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:32:38 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'приветствие', 'confidence': 0.9977352619171143} parse_data_text=приветики
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 10 events.
+2024-12-23 17:32:38 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:32:38 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37a5dfe20>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_microservice_info'}}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.memoization  - There is no memorised next action
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+[state 4] user text: приветики | previous action name: action_listen
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+[state 4] user intent: приветствие | previous action name: action_listen
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_greet'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_greet' based on user intent.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - Predicted next action 'utter_greet' with confidence 1.00.
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x37c80b760>]
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_greet rasa_events=[BotUttered('Привет! Давайте решим ваш вопрос', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_greet"}, 1734964358.010988)]
+2024-12-23 17:32:38 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37a5dfe20>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}]
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+[state 4] user intent: приветствие | previous action name: action_listen
+[state 5] user intent: приветствие | previous action name: utter_greet
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:32:38 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:38 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:32:38 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:32:38 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:32:38 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'user123'.
+2024-12-23 17:32:48 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'user123'.
+2024-12-23 17:32:48 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'user123'.
+2024-12-23 17:32:48 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'user123'.
+2024-12-23 17:32:48 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'user123'
+2024-12-23 17:32:48 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x37c8bf790>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37a5dfe20>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:32:48 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:32:48 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'запрос_помощи', 'confidence': 0.9958539009094238} parse_data_text=Мне нужна помощь
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 15 events.
+2024-12-23 17:32:48 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:32:48 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37a5dfe20>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}, {'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_help'
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+[state 4] user intent: приветствие | previous action name: action_listen
+[state 5] user intent: приветствие | previous action name: utter_greet
+[state 6] user text: Мне нужна помощь | previous action name: action_listen
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+[state 4] user intent: приветствие | previous action name: action_listen
+[state 5] user intent: приветствие | previous action name: utter_greet
+[state 6] user intent: запрос_помощи | previous action name: action_listen
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_help'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_help' based on user intent.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - Predicted next action 'utter_help' with confidence 1.00.
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x37c8af790>]
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_help rasa_events=[BotUttered('Я могу вам чем-то помочь?', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_help"}, 1734964368.347218)]
+2024-12-23 17:32:48 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37a5dfe20>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'utter_help'}}]
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: микросервисы | previous action name: action_listen
+[state 2] user intent: микросервисы | previous action name: utter_microservices
+[state 3] user intent: микросервисы | previous action name: action_microservice_info
+[state 4] user intent: приветствие | previous action name: action_listen
+[state 5] user intent: приветствие | previous action name: utter_greet
+[state 6] user intent: запрос_помощи | previous action name: action_listen
+[state 7] user intent: запрос_помощи | previous action name: utter_help
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:32:48 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:32:48 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:32:48 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:32:48 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:32:48 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'user123'.
+2024-12-23 17:33:11 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-12-23 17:33:11 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-12-23 17:33:11 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-12-23 17:33:11 DEBUG    rasa.core.tracker_store  - Could not find tracker for conversation ID 'shreyas'.
+2024-12-23 17:33:11 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - Starting a new session for conversation ID 'shreyas'.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_session_start rasa_events=[<rasa.shared.core.events.SessionStarted object at 0x380d5b760>, ActionExecuted(action: action_listen, policy: None, confidence: None)]
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-12-23 17:33:11 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x324097700>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37ddbda90>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:33:11 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:33:11 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'приветствие', 'confidence': 0.997685432434082} parse_data_text=привет
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 4 events.
+2024-12-23 17:33:11 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:33:11 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37ddbda90>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_greet'
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user text: привет | previous action name: action_listen
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_greet'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_greet' based on user intent.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - Predicted next action 'utter_greet' with confidence 1.00.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x380d51be0>]
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_greet rasa_events=[BotUttered('Привет! Давайте решим ваш вопрос', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_greet"}, 1734964391.310934)]
+2024-12-23 17:33:11 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37ddbda90>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}]
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:33:11 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:11 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:11 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:33:11 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:33:11 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+2024-12-23 17:33:18 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-12-23 17:33:18 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-12-23 17:33:18 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-12-23 17:33:18 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'shreyas'
+2024-12-23 17:33:18 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x37c8af160>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x380d4be50>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:33:18 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:33:18 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'запрос_помощи', 'confidence': 0.9968801736831665} parse_data_text=мне нужна помощь
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 9 events.
+2024-12-23 17:33:18 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:33:18 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x380d4be50>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'приветствие'}, 'prev_action': {'action_name': 'utter_greet'}}, {'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'utter_help'
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user text: мне нужна помощь | previous action name: action_listen
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'utter_help'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_help' based on user intent.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - Predicted next action 'utter_help' with confidence 1.00.
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x37ddbda30>]
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_help rasa_events=[BotUttered('Я могу вам чем-то помочь?', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_help"}, 1734964398.158698)]
+2024-12-23 17:33:18 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x380d4be50>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'utter_help'}}]
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.rule_policy  - There is a rule for the next action 'action_listen'.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:33:18 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:18 DEBUG    rasa.core.policies.ensemble  - Predicted next action using RulePolicy.
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:18 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:33:18 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:33:18 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+2024-12-23 17:33:29 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-12-23 17:33:29 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-12-23 17:33:29 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-12-23 17:33:29 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'shreyas'
+2024-12-23 17:33:29 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x380d3f6a0>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8af160>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:33:29 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:33:29 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'монолит', 'confidence': 0.9922014474868774} parse_data_text=что такое монолит
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 14 events.
+2024-12-23 17:33:29 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:33:29 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8af160>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'запрос_помощи'}, 'prev_action': {'action_name': 'utter_help'}}, {'user': {'intent': 'монолит'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.memoization  - There is no memorised next action
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user text: что такое монолит | previous action name: action_listen
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_monolith' based on user intent.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ensemble  - Predicted next action using TEDPolicy.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - Predicted next action 'utter_monolith' with confidence 0.99.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x37e9051c0>]
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_monolith rasa_events=[BotUttered('Монолитная архитектура — это подход, при котором всё приложение работает как единое целое. Больше информации о монолитах вы найдете в статье https://habr.com/ru/companies/dododev/articles/650721/', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_monolith"}, 1734964409.5638232)]
+2024-12-23 17:33:29 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8af160>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'монолит'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'монолит'}, 'prev_action': {'action_name': 'utter_monolith'}}]
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_monolith_info'
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+[state 6] user intent: монолит | previous action name: utter_monolith
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_monolith_info' based on user intent.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - Predicted next action 'action_monolith_info' with confidence 1.00.
+2024-12-23 17:33:29 DEBUG    rasa.core.actions.action  - Calling action endpoint to run action 'action_monolith_info'.
+2024-12-23 17:33:29 ERROR    rasa.core.actions.action  - Failed to run custom action 'action_monolith_info'. Couldn't connect to the server at 'http://localhost:5055/webhook'. Is the server running? Error: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+2024-12-23 17:33:29 ERROR    rasa.core.processor  - Encountered an exception while running action 'action_monolith_info'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1025, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 1065, in create_connection
+    raise exceptions[0]
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 1050, in create_connection
+    sock = await self._connect_sock(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 961, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/selector_events.py", line 499, in sock_connect
+    return await fut
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/selector_events.py", line 534, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('127.0.0.1', 5055)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/actions/action.py", line 780, in run
+    response: Any = await self.action_endpoint.request(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/utils/endpoints.py", line 174, in request
+    async with session.request(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/client.py", line 1197, in __aenter__
+    self._resp = await self._coro
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/client.py", line 581, in _request
+    conn = await self._connector.connect(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 944, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1257, in _create_direct_connection
+    raise last_exc
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1226, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1033, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/processor.py", line 982, in _run_action
+    events = await action.run(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/actions/action.py", line 821, in run
+    raise RasaException(
+rasa.shared.exceptions.RasaException: Failed to execute custom action 'action_monolith_info'. Couldn't connect to the server at 'http://localhost:5055/webhook.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_monolith_info rasa_events=[]
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-12-23 17:33:29 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8af160>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'монолит'}, 'prev_action': {'action_name': 'utter_monolith'}}, {'user': {'intent': 'монолит'}, 'prev_action': {'action_name': 'action_monolith_info'}}]
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+[state 6] user intent: монолит | previous action name: utter_monolith
+[state 7] user intent: монолит | previous action name: action_monolith_info
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:33:29 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:29 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:29 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:33:29 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:33:29 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
+2024-12-23 17:33:40 DEBUG    rasa.core.lock_store  - Issuing ticket for conversation 'shreyas'.
+2024-12-23 17:33:40 DEBUG    rasa.core.lock_store  - Acquiring lock for conversation 'shreyas'.
+2024-12-23 17:33:40 DEBUG    rasa.core.lock_store  - Acquired lock for conversation 'shreyas'.
+2024-12-23 17:33:40 DEBUG    rasa.core.tracker_store  - Recreating tracker for id 'shreyas'
+2024-12-23 17:33:40 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__message__': [<rasa.core.channels.channel.UserMessage object at 0x37c8af2b0>], '__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8f1a60>}, targets: ['run_RegexMessageHandler'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'nlu_message_converter' running 'NLUMessageConverter.convert_user_message'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_WhitespaceTokenizer0' running 'WhitespaceTokenizer.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_RegexFeaturizer1' running 'RegexFeaturizer.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_LexicalSyntacticFeaturizer2' running 'LexicalSyntacticFeaturizer.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_CountVectorsFeaturizer3' running 'CountVectorsFeaturizer.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_LanguageModelFeaturizer4' running 'LanguageModelFeaturizer.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_DIETClassifier5' running 'DIETClassifier.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_EntitySynonymMapper6' running 'EntitySynonymMapper.process'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_ResponseSelector7' running 'ResponseSelector.process'.
+2024-12-23 17:33:40 DEBUG    rasa.nlu.classifiers.diet_classifier  - There is no trained model for 'ResponseSelector': The component is either not trained or didn't receive enough training data.
+2024-12-23 17:33:40 DEBUG    rasa.nlu.selectors.response_selector  - Adding following selector key to message property: default
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_RegexMessageHandler' running 'RegexMessageHandler.process'.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.message.parse        parse_data_entities=[] parse_data_intent={'name': 'микросервисы', 'confidence': 0.991155743598938} parse_data_text=что такое микросервис
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - Logged UserUtterance - tracker now has 20 events.
+2024-12-23 17:33:40 DEBUG    rasa.core.actions.action  - Validating extracted slots:
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.extract.slots        action_extract_slot=action_extract_slots len_extraction_events=0 rasa_events=[]
+2024-12-23 17:33:40 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8f1a60>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'монолит'}, 'prev_action': {'action_name': 'action_monolith_info'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}]
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.memoization  - There is no memorised next action
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+[state 6] user intent: монолит | previous action name: utter_monolith
+[state 7] user intent: монолит | previous action name: action_monolith_info
+[state 8] user text: что такое микросервис | previous action name: action_listen
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+[state 6] user intent: монолит | previous action name: utter_monolith
+[state 7] user intent: монолит | previous action name: action_monolith_info
+[state 8] user intent: микросервисы | previous action name: action_listen
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'utter_microservices' based on user intent.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ensemble  - Made prediction using user intent.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ensemble  - Added `DefinePrevUserUtteredFeaturization(False)` event.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ensemble  - Predicted next action using TEDPolicy.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - Predicted next action 'utter_microservices' with confidence 0.98.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[<rasa.shared.core.events.DefinePrevUserUtteredFeaturization object at 0x37ddbda90>]
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=utter_microservices rasa_events=[BotUttered('Микросервисная архитектура — это подход к разработке, когда приложение разделяется на независимые сервисы, взаимодействующие между собой. Больше информации об интеграциях микросервисов вы найдете в статье  https://habr.com/ru/articles/791186/', {"elements": null, "quick_replies": null, "buttons": null, "attachment": null, "image": null, "custom": null}, {"utter_action": "utter_microservices"}, 1734964420.47535)]
+2024-12-23 17:33:40 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8f1a60>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_listen'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'utter_microservices'}}]
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_microservice_info'
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+[state 6] user intent: монолит | previous action name: utter_monolith
+[state 7] user intent: монолит | previous action name: action_monolith_info
+[state 8] user intent: микросервисы | previous action name: action_listen
+[state 9] user intent: микросервисы | previous action name: utter_microservices
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_microservice_info' based on user intent.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - Predicted next action 'action_microservice_info' with confidence 1.00.
+2024-12-23 17:33:40 DEBUG    rasa.core.actions.action  - Calling action endpoint to run action 'action_microservice_info'.
+2024-12-23 17:33:40 ERROR    rasa.core.actions.action  - Failed to run custom action 'action_microservice_info'. Couldn't connect to the server at 'http://localhost:5055/webhook'. Is the server running? Error: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+2024-12-23 17:33:40 ERROR    rasa.core.processor  - Encountered an exception while running action 'action_microservice_info'.Bot will continue, but the actions events are lost. Please check the logs of your action server for more information.
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1025, in _wrap_create_connection
+    return await self._loop.create_connection(*args, **kwargs)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 1065, in create_connection
+    raise exceptions[0]
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 1050, in create_connection
+    sock = await self._connect_sock(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/base_events.py", line 961, in _connect_sock
+    await self.sock_connect(sock, address)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/selector_events.py", line 499, in sock_connect
+    return await fut
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/asyncio/selector_events.py", line 534, in _sock_connect_cb
+    raise OSError(err, f'Connect call failed {address}')
+ConnectionRefusedError: [Errno 61] Connect call failed ('127.0.0.1', 5055)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/actions/action.py", line 780, in run
+    response: Any = await self.action_endpoint.request(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/utils/endpoints.py", line 174, in request
+    async with session.request(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/client.py", line 1197, in __aenter__
+    self._resp = await self._coro
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/client.py", line 581, in _request
+    conn = await self._connector.connect(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 544, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 944, in _create_connection
+    _, proto = await self._create_direct_connection(req, traces, timeout)
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1257, in _create_direct_connection
+    raise last_exc
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1226, in _create_direct_connection
+    transp, proto = await self._wrap_create_connection(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/aiohttp/connector.py", line 1033, in _wrap_create_connection
+    raise client_error(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host localhost:5055 ssl:default [Connect call failed ('127.0.0.1', 5055)]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/processor.py", line 982, in _run_action
+    events = await action.run(
+  File "/Users/v.anashkin/miniconda3/envs/myenv/lib/python3.9/site-packages/rasa/core/actions/action.py", line 821, in run
+    raise RasaException(
+rasa.shared.exceptions.RasaException: Failed to execute custom action 'action_microservice_info'. Couldn't connect to the server at 'http://localhost:5055/webhook.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_microservice_info rasa_events=[]
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.slots.log            slot_values=     session_started_metadata: None
+2024-12-23 17:33:40 DEBUG    rasa.engine.runner.dask  - Running graph with inputs: {'__tracker__': <rasa.shared.core.trackers.DialogueStateTracker object at 0x37c8f1a60>}, targets: ['select_prediction'] and ExecutionContext(model_id='ccfe110388724de188445167b93b2122', should_add_diagnostic_data=False, is_finetuning=False, node_name=None).
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'rule_only_data_provider' running 'RuleOnlyDataProvider.provide'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'domain_provider' running 'DomainProvider.provide_inference'.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_MemoizationPolicy1' running 'MemoizationPolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.memoization  - [debug    ] memoization.predict.actions    tracker_states=[{'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'utter_microservices'}}, {'user': {'intent': 'микросервисы'}, 'prev_action': {'action_name': 'action_microservice_info'}}]
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.memoization  - There is a memorised next action 'action_listen'
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_RulePolicy0' running 'RulePolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - [debug    ] rule_policy.actions.find       current_states=
+[state 1] user intent: приветствие | previous action name: action_listen
+[state 2] user intent: приветствие | previous action name: utter_greet
+[state 3] user intent: запрос_помощи | previous action name: action_listen
+[state 4] user intent: запрос_помощи | previous action name: utter_help
+[state 5] user intent: монолит | previous action name: action_listen
+[state 6] user intent: монолит | previous action name: utter_monolith
+[state 7] user intent: монолит | previous action name: action_monolith_info
+[state 8] user intent: микросервисы | previous action name: action_listen
+[state 9] user intent: микросервисы | previous action name: utter_microservices
+[state 10] user intent: микросервисы | previous action name: action_microservice_info
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.rule_policy  - There is no applicable rule.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'run_TEDPolicy2' running 'TEDPolicy.predict_action_probabilities'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ted_policy  - TED predicted 'action_listen' based on user intent.
+2024-12-23 17:33:40 DEBUG    rasa.engine.graph  - Node 'select_prediction' running 'DefaultPolicyPredictionEnsemble.combine_predictions_from_kwargs'.
+2024-12-23 17:33:40 DEBUG    rasa.core.policies.ensemble  - Predicted next action using MemoizationPolicy.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - Predicted next action 'action_listen' with confidence 1.00.
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.actions.policy_prediction prediction_events=[]
+2024-12-23 17:33:40 DEBUG    rasa.core.processor  - [debug    ] processor.actions.log          action_name=action_listen rasa_events=[]
+2024-12-23 17:33:40 DEBUG    rasa.core.tracker_store  - No event broker configured. Skipping streaming events.
+2024-12-23 17:33:40 DEBUG    rasa.core.lock_store  - Deleted lock for conversation 'shreyas'.
