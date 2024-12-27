@@ -1,0 +1,37 @@
+language: ru
+pipeline:
+  - name: WhitespaceTokenizer
+  - name: RegexFeaturizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+    analyzer: "char_wb"
+    min_ngram: 1
+    max_ngram: 4
+    # Подключение предобученной модели трансформера (BERT)
+  - name: "LanguageModelFeaturizer"
+    #    model_name: "bert"
+    model_name: "gpt2"
+    #    model_weights: "bert-base-cased"
+    model_weights: "gpt2"
+    cache_dir: null
+  - name: DIETClassifier
+    epochs: 100
+    transformer_size: 32
+    number_of_transformer_layers: 1
+    use_masked_language_model: false
+    batch_strategy: "balanced"
+    hidden_layers_sizes:
+      text: [32]
+    constrain_similarities: true
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
+    epochs: 100
+policies:
+  - name: RulePolicy
+  - name: MemoizationPolicy
+    max_history: 2
+  - name: TEDPolicy
+    max_history: 2
+    epochs: 100
+    constrain_similarities: true
+assistant_id: 20241024-101330-hoary-sempre
