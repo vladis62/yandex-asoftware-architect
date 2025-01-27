@@ -1,0 +1,26 @@
+http {
+    limit_req_zone $remote_addr zone=one:10m rate=10r/m;
+
+    upstream backend_servers {
+        server backend1.example.com;
+        server backend2.example.com;
+        server backend3.example.com;
+    }
+
+    server {
+        listen 80;
+
+        location / {
+            limit_req zone=one burst=10 nodelay;
+            proxy_pass http://backend_servers;
+            error_page 429 /custom_429.html;
+        }
+
+        location = /custom_429.html {
+            root /usr/share/nginx/html;
+            internal;
+            add_header Content-Type text/html;
+            return 429 '<html><body><h1>429 Too Many Requests</h1></body></html>';
+        }
+    }
+}

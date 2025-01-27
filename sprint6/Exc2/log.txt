@@ -1,0 +1,7 @@
+locust
+[2025-01-27 21:27:42,342] macbook-TMGGFWM6NX/INFO/locust.main: Starting Locust 2.32.6
+[2025-01-27 21:27:42,511] macbook-TMGGFWM6NX/INFO/locust.main: Starting web interface at http://0.0.0.0:8089
+[2025-01-27 21:29:01,973] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 50 users at a rate of 100.00 per second
+[2025-01-27 21:29:01,975] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 50} (50 total users)
+[2025-01-27 21:34:58,727] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 50 users at a rate of 50.00 per second
+[2025-01-27 21:34:58,729] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 50} (50 total users)
