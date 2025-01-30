@@ -12,6 +12,7 @@ http {
 
         location / {
             limit_req zone=one burst=10 nodelay;
+            limit_req_status 429;
             proxy_pass http://backend_servers;
             error_page 429 /custom_429.html;
         }

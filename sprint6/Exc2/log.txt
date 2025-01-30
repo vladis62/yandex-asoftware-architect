@@ -1,7 +1,23 @@
-locust
-[2025-01-27 21:27:42,342] macbook-TMGGFWM6NX/INFO/locust.main: Starting Locust 2.32.6
-[2025-01-27 21:27:42,511] macbook-TMGGFWM6NX/INFO/locust.main: Starting web interface at http://0.0.0.0:8089
-[2025-01-27 21:29:01,973] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 50 users at a rate of 100.00 per second
-[2025-01-27 21:29:01,975] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 50} (50 total users)
-[2025-01-27 21:34:58,727] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 50 users at a rate of 50.00 per second
-[2025-01-27 21:34:58,729] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 50} (50 total users)
+[2025-01-30 12:51:12,320] macbook-TMGGFWM6NX/INFO/locust.main: Starting Locust 2.32.6
+[2025-01-30 12:51:12,332] macbook-TMGGFWM6NX/INFO/locust.main: Starting web interface at http://0.0.0.0:8089
+[2025-01-30 12:51:57,144] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 50 users at a rate of 50.00 per second
+[2025-01-30 12:51:57,146] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 50} (50 total users)
+[2025-01-30 12:57:15,096] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 50 users at a rate of 100.00 per second
+[2025-01-30 12:57:15,099] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 50} (50 total users)
+[2025-01-30 12:58:12,654] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 150 users at a rate of 100.00 per second
+[2025-01-30 12:58:12,660] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 150} (150 total users)
+[2025-01-30 12:58:26,465] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 150 users at a rate of 100.00 per second
+[2025-01-30 12:58:27,479] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 150} (150 total users)
+[2025-01-30 13:02:24,889] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 200 users at a rate of 50.00 per second
+[2025-01-30 13:02:27,903] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 200} (200 total users)
+[2025-01-30 13:03:49,935] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 1000 users at a rate of 100.00 per second
+[2025-01-30 13:03:58,952] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
+[2025-01-30 13:05:25,588] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 1000 users at a rate of 100.00 per second
+[2025-01-30 13:05:34,609] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
+[2025-01-30 13:11:12,741] macbook-TMGGFWM6NX/WARNING/locust.runners: Your selected spawn rate is very high (>100), and this is known to sometimes cause issues. Do you really need to ramp up that fast?
+[2025-01-30 13:11:12,741] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 1000 users at a rate of 200.00 per second
+[2025-01-30 13:11:16,765] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
+[2025-01-30 13:16:02,409] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 1000 users at a rate of 50.00 per second
+[2025-01-30 13:16:21,439] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
+[2025-01-30 13:17:12,939] macbook-TMGGFWM6NX/INFO/locust.runners: Ramping to 1000 users at a rate of 50.00 per second
+[2025-01-30 13:17:31,963] macbook-TMGGFWM6NX/INFO/locust.runners: All users spawned: {"WebsiteUser": 1000} (1000 total users)
