@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: insuretech-app
+  namespace: insuretech
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: insuretech
+  template:
+    metadata:
+      labels:
+        app: insuretech
+    spec:
+      containers:
+        - name: insuretech-container
+          image: registry.example.com/insuretech:latest
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /readyz
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            failureThreshold: 3
+          env:
+            - name: DATABASE_URL
+              value: "postgres://user:password@db-cluster-a.insuretech:5432/insuretech"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: insuretech-service
+  namespace: insuretech
+spec:
+  type: LoadBalancer
+  selector:
+    app: insuretech
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
